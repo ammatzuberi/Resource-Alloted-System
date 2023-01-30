@@ -1,0 +1,257 @@
+$content-width: 1000px;
+$breakpoint: 300px;
+$nav-height: 50px;
+$nav-background: #fff;
+
+// box-shadow: 1px 1px 10px 0 rgb(0 0 0 / 5%);
+$nav-font-color: #0c0c0c;
+$link-hover-color: #04aa6d;
+
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+.logo-navbar {
+  width: 80px;
+  height: 31px;
+}
+
+body {
+  font-family: "Poppins";
+}
+
+.navigation {
+  height: $nav-height;
+  // backdrop-filter: blur(8px);
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 0 rgb(0 0 0 / 5%);
+  background: $nav-background;
+}
+
+.nav-container {
+  padding: 0px 70px 0px 70px;
+}
+
+.brand {
+  position: absolute;
+  padding-left: 20px;
+  float: left;
+  line-height: $nav-height;
+  text-transform: uppercase;
+  font-size: 1.4em;
+
+  a,
+  a:visited {
+    color: $nav-font-color;
+    text-decoration: none;
+  }
+}
+.email_tr {
+  margin-bottom: 200px;
+}
+
+.nav {
+  // float: right;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      float: left;
+      position: relative;
+      a {
+        // display: block;
+        padding: 1px 20px 0 20px;
+        line-height: 35px;
+        // background: $nav-background;
+        color: $nav-font-color;
+        text-decoration: none;
+
+        &::before {
+          transition: 300ms;
+          height: 5px;
+          content: "";
+          position: absolute;
+          // background-color: $link-hover-color;
+          width: 0%;
+          bottom: 0px;
+        }
+
+        &:hover::before {
+          width: 70%;
+        }
+        &:not(:only-child):after {
+          padding-left: 4px;
+          content: " ▾";
+        }
+      } // Dropdown list
+      ul li {
+        min-width: 190px;
+        a {
+          padding: 15px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+nav > ul > li.active > a {
+  color: $link-hover-color;
+}
+
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: $nav-background;
+  height: $nav-height;
+  width: $nav-height;
+}
+
+nav .active {
+  // background-color: $link-hover-color;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  text-decoration: #ccc;
+  color: $link-hover-color;
+  // border-bottom: 1px solid $link-hover-color;
+  transition: 0.3 all ease-in-out;
+}
+
+@media only screen and (max-width: $breakpoint) {
+  .nav-mobile {
+    display: block;
+  }
+  nav {
+    width: 100%;
+    padding: $nav-height 0 15px;
+    ul {
+      display: none;
+
+      li {
+        float: none;
+
+        a {
+          padding: 15px;
+          line-height: 20px;
+
+          &:hover::before {
+            width: 20%;
+          }
+        }
+        ul li a {
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+  .nav-dropdown {
+    position: static;
+  }
+}
+
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+  span,
+  span:before,
+  span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    // background: $link-hover-color;
+    position: absolute;
+    display: block;
+    content: "";
+    transition: all 300ms ease-in-out;
+  }
+  span:before {
+    top: -10px;
+  }
+  span:after {
+    bottom: -10px;
+  }
+  &.active span {
+    background-color: transparent;
+    &:before,
+    &:after {
+      top: 0;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint) {
+  .nav-list {
+    display: block !important;
+  }
+}
+
+.ulapp {
+}
+
+li a {
+  margin-top: 5px;
+  float: left;
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.ulapp li:hover:not(.active) {
+  background-color: #ddd;
+}
+
+// .li a .active {
+//   color: rgb(10, 4, 4);
+//   background-color: #04aa6d;
+// }
+// .nav-link .active {
+//   background-color: #0ab121;
+// }
+// ul .active{
+//   color: rgb(10, 4, 4);
+//   background-color: #04aa6d;
+// }
+nav {
+  position: sticky;
+  width: 100%;
+  margin-left: -6%;
+  // backdrop-filter: blur(8px);
+}
+nav ul li :hover {
+  // border-bottom: 1px solid $link-hover-color; 
+  // padding: 4px;
+  // font-size: large;
+}
+
+@media only screen and (max-width: 600px) {
+  nav > ul > li > a {
+    color: #04aa6d;
+    margin-left: -20px;
+  }
+}
+.admin_signin {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
